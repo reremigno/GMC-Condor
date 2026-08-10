@@ -308,6 +308,32 @@ body::before { content: ""; position: fixed; inset: 0px; background: repeating-l
 
 .sbar-v { font-family: "Bebas Neue", sans-serif; font-size: 0.94rem; color: var(--cyan); min-width: 22px; text-align: right; }
 
+.rl-hint { font-family: "Share Tech Mono", monospace; font-size: 0.7rem; color: var(--tx2); letter-spacing: 0.08em; margin-bottom: 6px; }
+
+.rl { border: 1px solid rgba(0, 180, 255, 0.12); background: var(--fold2); margin-bottom: 4px; }
+
+.rl > summary { list-style: none; cursor: pointer; padding: 6px 10px 6px 24px; position: relative; font-family: "Share Tech Mono", monospace; font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tx); transition: color 0.15s, background 0.15s; }
+
+.rl > summary::-webkit-details-marker { display: none; }
+
+.rl > summary::before { content: "+"; position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--cyan); font-size: 0.9rem; line-height: 1; }
+
+.rl[open] > summary::before { content: "\2212"; }
+
+.rl > summary:hover { color: var(--white); background: rgba(0, 180, 255, 0.05); }
+
+.rl[open] { border-color: rgba(0, 212, 255, 0.28); border-left: 2px solid var(--cyan); }
+
+.rl[open] > summary { color: var(--cyan); border-bottom: 1px solid rgba(0, 180, 255, 0.1); }
+
+.rl-b { padding: 8px 11px; font-size: 0.9rem; line-height: 1.65; color: var(--tx); }
+
+.rl-b > div + div { margin-top: 5px; }
+
+.rl-b b { color: var(--white); }
+
+.rl-b i { color: var(--tx2); font-style: normal; font-family: "Share Tech Mono", monospace; font-size: 0.82rem; }
+
 #footer { padding: 5px 13px; border-top: 1px solid rgba(0, 180, 255, 0.07); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
 
 .ftx { font-family: "Share Tech Mono", monospace; font-size: 0.7rem; color: var(--tx2); letter-spacing: 0.1em; text-transform: uppercase; }
@@ -462,19 +488,18 @@ body::before { content: ""; position: fixed; inset: 0px; background: repeating-l
 
         <div id="rule-live" style="margin-top:10px;padding:9px 11px;background:rgba(0,212,255,.04);border-left:2px solid var(--cyan);font-size: 0.9rem;line-height:1.65;color:var(--tx);"></div>
 
-        <div class="st" style="margin-top:12px">Lire ces chiffres</div>
-        <div style="padding:9px 11px;background:var(--fold2);border:1px solid rgba(0,180,255,.1);font-size: 0.9rem;line-height:1.7;color:var(--tx);">
-          <div><b style="color:var(--white)">Châssis (1–9)</b> — le Condor est un PNJ-objet : son Niveau vaut à la fois son Blindage et le Seuil à atteindre pour le toucher. Un seul chiffre.</div>
-          <div style="margin-top:6px"><b style="color:var(--white)">Structure — 12 PV</b> — comme tout personnage du Protocole EVE. À 0, le Condor est hors service : moteur mort, roue arrachée, essieu plié. Pas nécessairement détruit — Crank répare, contre nuyens.</div>
-          <div style="margin-top:6px"><b style="color:var(--white)">Pilotage (0 à +2)</b> — points d'amélioration conférés au pilote à bord. Plafond aligné sur celui d'un Atout de Rang 3. Bonus situationnels : le MJ n'en applique qu'un seul à la fois.</div>
-          <div style="margin-top:6px"><b style="color:var(--white)">Discrétion (1–9)</b> — Seuil à atteindre pour repérer, pister ou identifier le Condor (Vigilance, Matrice, poursuite).</div>
-          <div style="margin-top:6px"><b style="color:var(--white)">Drones</b> — embarqués sur capacité de contrôle. Sans RCC, un seul drone à la fois ; la Console Novatech porte la capacité à 3.</div>
-          <div style="margin-top:6px"><b style="color:var(--white)">Puissance (0–9)</b> — meilleure Puissance offensive disponible depuis le véhicule (éperonnage, armement de drone).</div>
-          <div style="margin-top:8px;padding-top:7px;border-top:1px solid rgba(0,180,255,.1);font-family:'Share Tech Mono',monospace;font-size: 0.76rem;color:var(--tx2);letter-spacing:.06em;">
-            La vitesse de pointe, le calibre et le rugissement du V8 sont décrits, jamais chiffrés : purement narratifs, sans effet mécanique.
-          </div>
-        </div>
-
+        <div class="st" style="margin-top:12px">Règles véhicule — Protocole EVE</div>
+        <div class="rl-hint">Chapitre 6 du Protocole EVE. Cliquez pour déplier.</div>
+        <details class="rl"><summary>Lire les cinq chiffres</summary><div class="rl-b"><div><b>Châssis (1–9)</b> — vaut à la fois le Blindage du Condor et le Seuil à atteindre pour le toucher. Un seul chiffre.</div><div><b>Pilotage (0 à +2)</b> — points d'amélioration conférés au pilote. Plafond d'un Atout de Rang 3. Situationnels : un seul à la fois.</div><div><b>Discrétion (1–9)</b> — Seuil pour repérer, pister ou identifier le Condor.</div><div><b>Drones</b> — embarqués sur capacité de contrôle.</div><div><b>Puissance (0–9)</b> — meilleure Puissance offensive disponible depuis le véhicule.</div><div><i>Vitesse de pointe, calibre et rugissement du V8 sont décrits, jamais chiffrés.</i></div></div></details>
+        <details class="rl"><summary>Structure — 12 points</summary><div class="rl-b"><div>Comme tout personnage. Les paliers imposent un malus aux jets de Pilotage :</div><div><i>12–10</i> intact · <i>9–6</i> tôle froissée, −2 dés · <i>5–4</i> sérieux, −4 dés · <i>3–1</i> critique, −6 dés · <i>0</i> hors service.</div><div><b>Hors service ≠ épave.</b> Le Condor s'arrête, il n'explose pas. La carcasse sert de couverture et Crank saura le remonter. Le détruire est une décision narrative, jamais un résultat de dés.</div></div></details>
+        <details class="rl"><summary>Tirer sur le Condor</summary><div class="rl-b"><div><b>Un PJ tire</b> — Score Final ≥ Châssis pour toucher. Dégâts = Score Final + Puissance de l'arme − Châssis, retirés de la Structure.</div><div><b>Un PNJ tire</b> — il touche automatiquement. Dégâts = son Niveau − Châssis.</div><div><b>Tir concentré</b> — une escouade groupée ajoute +1 par tireur au-delà du premier, avant soustraction du Châssis. C'est ainsi qu'un barrage arrête un fourgon.</div></div></details>
+        <details class="rl"><summary>Les occupants</summary><div class="rl-b"><div>Tant que la Structure est supérieure à 0, ils sont couverts. Les viser à travers la tôle ou une vitre : Seuil = Châssis + 2.</div><div>Si le tir porte, l'occupant applique la meilleure des deux protections — son armure personnelle ou le Châssis.</div><div>À 0 de Structure, la couverture disparaît. C'est le vrai danger d'une poursuite qui tourne mal : pas la perte du véhicule, l'instant qui suit.</div></div></details>
+        <details class="rl"><summary>Le pilote</summary><div class="rl-b"><div>Le bonus de Pilotage ne dépasse jamais +2. Il est situationnel : la suspension ne sert à rien sur autoroute, le V8 ne sert à rien dans un tunnel de service.</div><div>Un véhicule n'accorde <b>jamais</b> de relance. Les relances viennent des Atouts du personnage — l'Interface Rigger, le neurolink véhicule. La console est le matériel ; l'Atout est ce que le rigger a dans le crâne.</div></div></details>
+        <details class="rl"><summary>Poursuites</summary><div class="rl-b"><div>Trois échanges, jamais plus — sinon la scène s'enlise.</div><div>Seuil = Niveau du poursuivant, ou Discrétion du fuyard si la poursuite se joue au semage.</div><div>Deux réussites sur trois : le Condor décroche. Une seule : il s'en sort abîmé, complication imposée. Aucune : rattrapé, encerclé ou stoppé.</div><div>Chaque échange raté expose le Condor au feu du poursuivant, résolu contre la Structure.</div></div></details>
+        <details class="rl"><summary>Éperonner</summary><div class="rl-b"><div>Puissance d'éperonnage = Châssis, portée à Châssis + 2 avec un blindage frontal renforcé.</div><div>L'éperonneur subit la moitié des dégâts qu'il inflige, arrondie à l'inférieur. Un piéton pris de plein fouet subit la Puissance complète, sans armure.</div></div></details>
+        <details class="rl"><summary>Drones</summary><div class="rl-b"><div>Un drone est un PNJ-objet : son Niveau vaut ses PV, son Blindage et le Seuil pour le toucher — pas de Structure séparée.</div><div>Capacité de contrôle : 1 drone depuis un commlink, 3 avec une console RCC.</div><div>Piloter un drone au combat, c'est renoncer à agir soi-même — sauf à dépenser un point d'Anarchy pour une action bonus.</div></div></details>
+        <details class="rl"><summary>L'Atelier de Crank</summary><div class="rl-b"><div>Structure de 1 à 11 : gratuit, entre deux scènes.</div><div>Structure remise à 12 : gratuit, entre deux chapitres.</div><div>Véhicule hors service : 5 000 ¥ et une scène chez Crank.</div><div>+1 Châssis, ou un module : 5 000 à 20 000 ¥. Ailleurs, comptez le double et une question de trop sur l'origine du véhicule.</div></div></details>
+        
         </div>
 
       <!-- ═══ JOURNAL ═══ -->
